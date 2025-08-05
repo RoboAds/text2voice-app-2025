@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Sanyal - Text to Voice</title>
 </head>
 <body>
     <h1>Text to Voice Converter 2025 </h1>
     <form method="POST">
-        <textarea name="text" rows="5" cols="50" placeholder="Enter text here..." required></textarea><br><br>
+        <textarea name="text" rows="15" cols="150" placeholder="Enter text here..." required></textarea><br><br>
 
         <label for="lang">Select Language:</label>
-        <select name="lang" required>
+        <select id="lang" name="lang" required>
+            <option value="" disabled selected>Default</option>
             <option value="en">English</option>
             <option value="ml">Malayalam</option>
             <option value="hi">Hindi</option>
@@ -25,12 +28,7 @@
             <option value="slow">Slow</option>
         </select><br><br>
 
-        <label for="gender">Select Gender (for future use):</label>
-        <select name="gender" required>
-            <option value="default">Default</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select><br><br>
+
 
         <button type="submit">Convert to Audio</button>
     </form>
