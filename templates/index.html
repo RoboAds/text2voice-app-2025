@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Voice</title>
+</head>
+<body>
+    <h1>Text to Voice Converter</h1>
+    <form method="POST">
+        <textarea name="text" rows="5" cols="50" placeholder="Enter text here..." required></textarea><br><br>
+
+        <label for="lang">Select Language:</label>
+        <select name="lang" required>
+            <option value="en">English</option>
+            <option value="ml">Malayalam</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ar">Arabic</option>
+        </select><br><br>
+
+        <label for="speed">Select Speed:</label>
+        <select name="speed" required>
+            <option value="normal">Normal</option>
+            <option value="slow">Slow</option>
+        </select><br><br>
+
+        <label for="gender">Select Gender (for future use):</label>
+        <select name="gender" required>
+            <option value="default">Default</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br><br>
+
+        <button type="submit">Convert to Audio</button>
+    </form>
+
+    {% if audio_file %}
+        <h3>Generated Audio:</h3>
+        <audio controls>
+            <source src="{{ url_for('get_audio', filename=audio_file) }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+</body>
+</html>
